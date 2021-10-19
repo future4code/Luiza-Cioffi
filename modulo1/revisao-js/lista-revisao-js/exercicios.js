@@ -57,7 +57,12 @@ console.log(retornaMaiorNumero())
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
-
+    
+    const Objeto = {
+        maiorNumero: num3,
+        maiorDivisivelPorMenor: booleano,
+        diferenca: num4
+    }
 }
 
 // EXERCÍCIO 08
