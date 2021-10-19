@@ -37,18 +37,23 @@ console.log(retornaNumerosPares())
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
-    const apenasParesElevados = function(itemElevado) {
+    const apenasPares2 = function(itemElevado) {
         return !(itemElevado % 2);
     }
-    return array.filter(apenasParesElevados)
+    const paresParaElevar = array.filter(apenasPares2)
+    const paresElevados = paresParaElevar.map(function(num){
+        return num * num;
+    })
+    return paresElevados
 }
 console.log(retornaNumerosParesElevadosADois())
-}
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
-  
+    const max = Math.max(...array);
+    return max
 }
+console.log(retornaMaiorNumero())
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
