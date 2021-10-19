@@ -13,23 +13,36 @@ console.log(retornaTamanhoArray())
 // EXERCÍCIO 02
 function retornaArrayInvertido(array) {
     return array.reverse();
-   
 }
 console.log(retornaArrayInvertido())
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-  
+    let arrayInicial = array 
+    function compararNumeros (a, b) {
+        return a - b;
+      };
+    return arrayInicial.sort(compararNumeros);    
 }
+console.log(retornaArrayOrdenado())
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-  
+    const apenasPares = function(item) {
+        return !(item % 2);
+    }
+    return array.filter(apenasPares)
 }
+console.log(retornaNumerosPares())
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
- 
+    const apenasParesElevados = function(itemElevado) {
+        return !(itemElevado % 2);
+    }
+    return array.filter(apenasParesElevados)
+}
+console.log(retornaNumerosParesElevadosADois())
 }
 
 // EXERCÍCIO 06
