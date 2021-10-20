@@ -36,37 +36,44 @@
 
 // CONDICIONAIS
 
-// Exercício 3------------------------------------------------------------------------------------
+// // Exercício 3------------------------------------------------------------------------------------
 
-const cadastro = () => {
-    const anoAtual = 2021
-    const usuario = []
-    const nomeDoUsuario = prompt("Digite seu nome:")
-    const anoDeNascimento = Number(prompt("Digite o ano em que você nasceu:"))
-    const senhaDoUsuario = prompt("Digite uma senha com 6 caracteres ou mais:")
-    const nacionalidade = prompt("Digite em que país você nasceu:").toLowerCase()
+// const cadastro = () => {
+//     const anoAtual = 2021
+//     const usuario = []
+//     const nomeDoUsuario = prompt("Digite seu nome:")
+//     const anoDeNascimento = Number(prompt("Digite o ano em que você nasceu:"))
+//     const senhaDoUsuario = prompt("Digite uma senha com 6 caracteres ou mais:")
+//     const nacionalidade = prompt("Digite em que país você nasceu:").toLowerCase()
         
-    if (((anoAtual - anoDeNascimento) >= 18) && (senhaDoUsuario.length >= 6) && (nacionalidade === "brasil")){
-        usuario.push(nomeDoUsuario)
-        usuario.push(anoDeNascimento)
-        usuario.push(senhaDoUsuario)
-        usuario.push(nacionalidade)
-        return `Cadastro de ${nomeDoUsuario} efetuado com sucesso!`
-    }else{
-        return `Não foi possível realizar o cadastro. Tente novamente`
+//     if (((anoAtual - anoDeNascimento) >= 18) && (senhaDoUsuario.length >= 6) && (nacionalidade === "brasil")){
+//         usuario.push(nomeDoUsuario)
+//         usuario.push(anoDeNascimento)
+//         usuario.push(senhaDoUsuario)
+//         usuario.push(nacionalidade)
+//         return `Cadastro de ${nomeDoUsuario} efetuado com sucesso!`
+//     }else{
+//         return `Não foi possível realizar o cadastro. Tente novamente`
+//     }
+// }
+// console.log(cadastro());
+
+// // Exercício 4-----------------------------------------------------------------------------------------------
+
+const login = () => {
+    const login = "labenu"
+    const solitaSenha = prompt("Olá, digite sua senha para efetuar o login")
+    switch(solitaSenha){
+        case login:
+            return "Usuário Logado"
+            break;
+        default:
+            return "Senha Inválida"
+            break    
     }
 }
-console.log(cadastro());
 
-// Exercício 4-----------------------------------------------------------------------------------------------
-
-// const login = () => {
-//     const login = "labenu"
-//     //  Sua lógica aqui
-
-// }
-
-// console.log(login());
+console.log(login());
 
 // // Exercício 5----------------------------------------------------------------------------------------------------
 
