@@ -26,16 +26,14 @@ button:focus {
 }
 
 img {
-    width: 100px;
+    width: 15%;
+    
 }
 
 div>p:first-child {
     display: inline;
 }
 
-div img {
-    background: black;
-}
 
 .botao-amarelo {
     display: block;
@@ -101,7 +99,7 @@ div:last-child {
 }
 
 table {
-    width: 60%;
+    width: 55%;
     text-align: center; 
     vertical-align: middle;
 }
