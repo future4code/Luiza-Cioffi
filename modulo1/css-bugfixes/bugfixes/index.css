@@ -27,7 +27,7 @@ button:focus {
 
 img {
     width: 15%;
-    
+
 }
 
 div>p:first-child {
@@ -57,6 +57,7 @@ div>p:first-child {
 
 .icone {
     height: 15px;
+    width: 15px;
 }
 
 
