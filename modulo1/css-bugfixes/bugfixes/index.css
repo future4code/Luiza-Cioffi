@@ -25,6 +25,14 @@ button:focus {
     color: white;
 }
 
+button:hover {
+    background-color: #ff9811;
+}
+
+button:active {
+    color: white;
+}
+
 img {
     width: 15%;
 
