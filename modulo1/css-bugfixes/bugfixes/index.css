@@ -8,6 +8,8 @@
     margin: 0;
     padding: 0;
     font-family: Roboto;
+    text-align: center;
+    margin: auto;
 }
 
 h2 {
@@ -111,9 +113,11 @@ div:last-child {
 }
 
 table {
-    width: 55%;
+    width: 50%;
     text-align: center; 
     vertical-align: middle;
+    margin: auto;
+    
 }
 
 td button {
