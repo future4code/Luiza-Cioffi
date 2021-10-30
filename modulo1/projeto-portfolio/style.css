@@ -1,0 +1,143 @@
+*{
+    margin: 0; 
+    padding:0; 
+    box-sizing: border-box;
+    font-family: 'Open', sans-serif;
+    color: rgb(44, 61, 32)
+}
+
+button{
+    font-family: 'Open';
+    background: rgb(146, 185, 120);
+    padding: 1%;
+    border-radius: 8px;
+    border: none;
+    font-weight:800;
+    font-size: 16px;
+    color: rgb(41, 88, 57);
+}
+
+button:hover{
+    background: rgba(159, 202, 131, 0.678)    
+}
+button:active{
+    color: black;
+    background-color: rgb(99, 126, 82);
+}
+button:visited{
+    color: rgb(68, 57, 57);
+}
+
+a:link {
+    color:rgb(20, 20, 20);
+    text-decoration:none;
+  }
+
+a:visited {
+    color: rgb(57, 61, 53);
+    text-decoration:none
+}
+
+div ul{
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-top: 10px;
+    text-align: left;
+}
+
+div p{
+    margin-top: 8px;
+    text-align: justify;
+
+}
+
+div h2{
+    color:rgb(92, 128, 72);     margin-top: 10%;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+form {
+    margin: 0 auto;
+    width: 400px;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+
+label {
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+}
+
+input, textarea {
+    font: 1em sans-serif;
+    width: 300px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #999;
+}
+
+input:focus, textarea:focus {
+    border-color: #000;
+}
+
+textarea {
+    vertical-align: top;
+    height: 5em;
+    resize: vertical;
+}
+
+.cabecalho1{
+    text-align: center;
+}
+
+.cabecalho2{
+    background: rgb(159, 202, 131);
+    padding-top: 0.5%;
+    padding-right: 3%;
+    padding-bottom: 0.5%;
+    text-align: right;
+    position: sticky;
+    top: 0;
+}
+
+.apres-index{
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: center;
+    padding: 0.5%;
+    display: inline-table;
+}
+
+.links-internos {
+    text-align: center;
+}
+
+.titulos{
+    margin-top: 2%;
+    margin-left: 20%;
+}
+
+.texto-index{
+    margin: 3% 20% 0.5% 20%;
+    text-align: left;
+}
+
+.img-index{
+    border-radius: 12px;
+    margin: 10%;
+}
+
+.texto-sobre{
+    margin: 3% 20% 0.5% 20%;
+    text-align: center;
+}
+
+.tabela-form{
+    margin: 5%;
+    padding: 10% 15% 10% 15%;
+    border:rgb(20, 20, 20);
+
+}
