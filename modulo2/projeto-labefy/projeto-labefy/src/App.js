@@ -1,8 +1,10 @@
 import React from "react";
-import TelaDetalAdic from "./Components/TelaDetalAdic";
 import Home from "./Components/Home";
-import TelaOuvirMusica from "./Components/TelaOuvirMusica";
 import TelaDasPlaylists from "./Components/TelaDasPlaylists";
+import TelaDetalAdic from "./Components/TelaDetalAdic";
+
+import TelaOuvirMusica from "./Components/TelaOuvirMusica";
+
 
 export default class App extends React.Component {
   state = {
