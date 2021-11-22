@@ -1,12 +1,15 @@
 import React from "react";
-import Home from "./Components/Home";
-import TelaDasPlaylists from "./Components/TelaDasPlaylists";
-import TelaDetalAdic from "./Components/TelaDetalAdic";
+import styled from "styled-components";
+import axios from "axios";
+import Home from "./Components/Home/Home";
+import AbrirPlaylist from "./Components/AbrirPlaylist/AbrirPlaylist"
+import Header from "./Components/Header/Header"
+import Footer from "./Components/Footer/Footer"
 
-import TelaOuvirMusica from "./Components/TelaOuvirMusica";
 
 
 export default class App extends React.Component {
+
   state = {
     telaAtual: "home"
   }
@@ -14,40 +17,33 @@ export default class App extends React.Component {
   escolheTela = () => {
     switch (this.state.telaAtual){
       case "home":
-        return <Home irTelaDasPlaylists={this.irTelaDasPlaylists} irTelaOuvirMusica={this.irTelaOuvirMusica}/>
-      case "TelaDasPlaylists":
-        return <TelaDasPlaylists irHome={this.irHome} irTelaDetalAdic={this.irTelaDetalAdic} irTelaOuvirMusica={this.irTelaOuvirMusica} />
-      case "telaDetalAdic":
-        return <TelaDetalAdic irHome={this.irHome} irTelaDasPlaylists={this.irTelaDasPlaylists}/>
-      case "telaOuvirMusica":
-        return <TelaOuvirMusica irHome={this.irHome} irTelaDasPlaylists={this.irTelaDasPlaylists}/>
+        return <Home irAbrirPlaylist={this.irAbrirPlaylist}/>
+      case "abrirPlaylist":
+        return <AbrirPlaylist irHome={this.irHome}/>
       default:
-        return <div>Ops! Parece que tivemos um imprevisto... Tente novamente mais tarde!</div>
+        return "Erro, página não encontrada!"
     }
   }
+
+
 
   irHome = () => {
     this.setState({telaAtual: "home"})
   }
-
-  irTelaDasPlaylists = () => {
-    this.setState({telaAtual: "TelaDasPlaylists"})
+  irAbrirPlaylist = () => {
+    this.setState({telaAtual: "abrirPlaylist"})
   }
 
-  irTelaDetalAdic = () => {
-    this.setState({telaAtual: "telaDetalAdic"})
-  }
-
-  irTelaOuvirMusica = () => {
-    this.setState({telaAtual: "telaOuvirMusica"})
-  }
-
-  
   render(){
     return (
       <div>
+        <Header 
+          // paginaHome={this.state.telaAtual}
+          // paginaMusica
+        />
         {this.escolheTela()}
+        <Footer/>
       </div>
-    );
+    )
   }
 }
