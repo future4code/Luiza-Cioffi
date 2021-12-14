@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { useParams } from "react-router-dom";
 
 
 //Para o administrador ver a lista de viagens e poder deletá-las ou acessar o detalhe de cada uma delas
@@ -10,9 +9,9 @@ import { useParams } from "react-router-dom";
 function AdminHomePage() {
 
   const history = useHistory()
-
-  const goToTripDetailPage = () => {
-    history.push("/admin/trips/:id")
+  
+  const goToTripDetailPage = (id) => {
+    history.push(`/admin/trips/${id}`)
   }
 
   const goToCreateTripPage = () => {
@@ -23,7 +22,6 @@ function AdminHomePage() {
     history.goBack()
   }
 
-  const pathParams = useParams()
   return (
     <div>
       <h1>AdminHomePage</h1>
