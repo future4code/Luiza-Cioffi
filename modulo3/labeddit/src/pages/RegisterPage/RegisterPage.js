@@ -1,10 +1,20 @@
 import React from "react";
+import { ScreenContainer, LogoImage, SignUpButtonContainer } from "./Styled";
+import logo from "../../assets/logo.png";
+import RegisterForm from "./RegisterForm"
+import useUnprotectedPage from "../../hooks/useUnprotectedPage";
+
+
 
 const RegisterPage = () => {
+
+  useUnprotectedPage()
+  
   return (
-    <div>
-      <p>RegisterPage</p>
-    </div>
+    <ScreenContainer>
+      <LogoImage src={logo}/>
+      <RegisterForm />
+    </ScreenContainer>
   );
 }
 

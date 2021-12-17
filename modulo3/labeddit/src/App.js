@@ -5,6 +5,10 @@ import { theme } from "./constants/theme"
 
 
 const App = () => {
+
+  const token = localStorage.getItem("token")
+  const [loginButton, setLoginButton] = useState(token ? "Logout" : "Login")
+  
   return (
     <ThemeProvider theme={theme}>
       <Router/>
