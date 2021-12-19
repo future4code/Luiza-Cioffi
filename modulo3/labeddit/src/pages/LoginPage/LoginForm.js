@@ -6,14 +6,14 @@ import { Button } from "@material-ui/core";
 import { login } from "../../services/users";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-const LoginForm = () => {
+const LoginForm = ({setLoginButton}) => {
 
   const [form, onChange, clear] = useForm({email: "", password: ""})
   const history = useHistory()
   
   const onSubmitForm = (event) => {
     event.preventDefault()
-    login(form, clear, history)
+    login(form, clear, history, setLoginButton)
   }
 
   

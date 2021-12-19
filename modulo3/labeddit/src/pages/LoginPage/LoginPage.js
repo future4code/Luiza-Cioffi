@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { goToRegister } from "../../routes/coordinators" 
 import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 
-const LoginPage = () => {
+const LoginPage = ({setLoginButton}) => {
 
   useUnprotectedPage()
   const history = useHistory()
@@ -16,7 +16,7 @@ const LoginPage = () => {
   return (
     <ScreenContainer>
       <LogoImage src={logo}/>
-      <LoginForm />
+      <LoginForm setLoginButton={setLoginButton}/>
       
       <SignUpButtonContainer>
       <Button 

@@ -6,14 +6,14 @@ import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 
 
 
-const RegisterPage = () => {
+const RegisterPage = ({setLoginButton}) => {
 
   useUnprotectedPage()
   
   return (
     <ScreenContainer>
       <LogoImage src={logo}/>
-      <RegisterForm />
+      <RegisterForm setLoginButton={setLoginButton} />
     </ScreenContainer>
   );
 }

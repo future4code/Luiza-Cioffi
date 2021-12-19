@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { register } from "../../services/users";
 
 
-const RegisterForm = () => {
+const RegisterForm = ({setLoginButton}) => {
     const history = useHistory()
     const initialState = {
       email: '',
@@ -19,7 +19,7 @@ const RegisterForm = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        register(form, clear, history)
+        register(form, clear, history, setLoginButton)
     }
 
     return (

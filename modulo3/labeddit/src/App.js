@@ -1,7 +1,9 @@
 import ThemeProvider from "@material-ui/styles/ThemeProvider/ThemeProvider";
-import React from "react";
+import React, { useState } from "react";
 import Router from "./routes/Router";
 import { theme } from "./constants/theme"
+import Header from "./components/Header/Header";
+import { BrowserRouter } from "react-router-dom";
 
 
 const App = () => {
@@ -11,7 +13,10 @@ const App = () => {
   
   return (
     <ThemeProvider theme={theme}>
-      <Router/>
+      <BrowserRouter>
+        <Header loginButton={loginButton} setLoginButton={setLoginButton}/>
+        <Router setLoginButton={setLoginButton}/>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

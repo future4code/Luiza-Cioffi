@@ -2,7 +2,7 @@ import axios from "axios";
 import { BASE_URL } from "../constants/url"
 import { goToFeed } from "../routes/coordinators";
 
-export const login = (body, clear, history) => {
+export const login = (body, clear, history, setLoginButton) => {
     axios.post(`${BASE_URL}/users/login`, body, {
         header: {
             "Content-Type": "application/json"
@@ -12,6 +12,7 @@ export const login = (body, clear, history) => {
         localStorage.setItem('token', resp.data.token)
         clear()
         goToFeed(history)
+        setLoginButton("Logout")
     })
     .catch((err) => {
         alert("Ops... Algo deu errado! Verifique seus dados e tente novamente!")
@@ -19,7 +20,7 @@ export const login = (body, clear, history) => {
     }) 
 }
 
-export const register = (body, clear, history) => {
+export const register = (body, clear, history, setLoginButton) => {
     axios.post(`${BASE_URL}/users/signup`, body, {
         header: {
             "Content-Type": "application/json"
@@ -29,6 +30,7 @@ export const register = (body, clear, history) => {
         localStorage.setItem('token', resp.data.token)
         clear()
         goToFeed(history)
+        setLoginButton("Logout")
     })
     .catch((err) => {
         alert("Ops... Algo deu errado! Verifique seus dados e tente novamente!")
