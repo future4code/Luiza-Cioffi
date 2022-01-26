@@ -1,0 +1,1 @@
+console.log("O script de cada exercício será 'start' seguido do número do exercício (start1, start2, etc)")
