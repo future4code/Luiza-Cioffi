@@ -17,7 +17,7 @@ app.get("/ping", (req, res) => {
 
 //2
 type ToDos = {
-    userId: number,
+    userId: string,
     id: number,
     title: string,
     completed: boolean
@@ -26,31 +26,31 @@ type ToDos = {
 //3
 const toDo: ToDos[] = [
   {
-    userId: 1,
+    userId: '1',
     id: 1,
     title: "delectus aut autem",
     completed: true
   },
   {
-    userId: 1,
+    userId: '1',
     id: 2,
     title: "quis ut nam facilis et officia qui",
     completed: false
   },
   {
-    userId: 2,
+    userId: '2',
     id: 3,
     title: "fugiat veniam minus",
     completed: false
   },
   {
-    userId: 2,
+    userId: '2',
     id: 4,
     title: "et porro tempora",
     completed: true
   },
   {
-    userId: 3,
+    userId: '3',
     id: 5,
     title: "laboriosam mollitia et enim quasi adipisci quia provident illum",
     completed: false
@@ -68,7 +68,7 @@ app.get("/todo/accomplished", (req, res) => {
 })
 
 //5
-app.post("/todo/create", (req, res) => {
+app.post("/todo", (req, res) => {
     const userId = req.body.userId
     const id = req.body.id
     const title = req.body.title
@@ -78,7 +78,7 @@ app.post("/todo/create", (req, res) => {
     res.send({ result: toDo })  
 })
 
-//6
+//6 
 app.post("/todo/edit", (req, res) => {
     const taskId = Number(req.query.id)
     const saveInfo = []
@@ -92,4 +92,22 @@ app.post("/todo/edit", (req, res) => {
     res.send(filterTask)
 })
 
-//7
+//7 - Construa um endpoint que deleta um determinado afazer de acordo com sua id.
+
+//8
+app.get("/todo/search", (req, res) => {
+    const queryUserId = req.query.userId
+    if (!queryUserId) {
+        res.status(404).send("Query 'UserId' is needed")
+    }
+
+    const filterToDo = toDo.filter((todo) => {
+      if(todo.userId === queryUserId){
+        return todo
+      }
+    })
+    res.send(filterToDo)
+})
+
+//9 
+// https://documenter.getpostman.com/view/18389097/UVeFMSEX
