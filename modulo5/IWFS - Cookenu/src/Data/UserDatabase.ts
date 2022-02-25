@@ -23,7 +23,7 @@ export class UserDatabase extends BaseDatabase {
             const user = await BaseDatabase.connection("lbn_user")
             .select("*")
             .where({ email });
-            return User.toUserModel(user[0])
+            return user[0] && User.toUserModel(user[0])
         }catch(error){
             throw new Error(error.sqlMessage || error.message);
         }

@@ -5,11 +5,11 @@ import { Authenticator } from "../services/Authenticator";
 import { HashManager } from "../services/HashManager";
 import { IdGenerator } from "../services/idGenerator";
 
-export async function signup(req: Request, res:Response): Promise<any>{
+export async function login(req: Request, res:Response): Promise<any>{
     try{
-        const {name, email, password, role}= req.body
+        const {email, password}= req.body
 
-        if(!name || !email || !password || !role){
+        if(!email || !password){
             res.status(422).send(
                 'Atenção: verifique as informações fornecidas e tente novamente'
             );
@@ -18,23 +18,20 @@ export async function signup(req: Request, res:Response): Promise<any>{
     const userDatabase =  new UserDatabase();
     const user = await userDatabase.findUserByEmail(email);
 
-    if (user) {
-        res.status(409).send('E-mail já cadastrado!')
+    if (!user) {
+        res.status(409).send('Usuário não encontrado')
     }
 
-    const idGenerator = new IdGenerator();
-    const id = idGenerator.generate();
-
     const hashManager = new HashManager();
-    const hashPassword = await hashManager.hash(password);
+    const passwordIsCorrect = await hashManager.compare(password, user.getPassword())
 
-    const newUser = new User(id, name, email, hashPassword, role);
-    await userDatabase.createUser(newUser);
-
+    if (!passwordIsCorrect){
+        res.status(401).send("E-mail e/ou senha incorretos")
+    }
     const authenticator = new Authenticator();  
-    const token = authenticator.generate({ id, role})
+    const token = authenticator.generate({ id: user.getId(), role: user.getRole()})
 
-    res.status(200).send("Usuário criado com sucesso!")
+    res.status(200).send({message: "Usuário logado com sucesso!", token})
 
     }catch(error){
         res.status(400).send(error.message)
