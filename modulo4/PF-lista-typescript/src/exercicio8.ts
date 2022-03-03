@@ -1,11 +1,25 @@
-// Escreva uma função que pergunta ao usuário a data de nascimento de uma pessoa (ex.: “24/04/1993”, e a data de emissão da sua carteira de identidade (ex.: “07/11/2015”). A função deve retornar um booleano que indica se a carteira precisa ser renovada ou não. A carteira precisa ser renovada segundo os seguintes critérios:
-
-// - Para pessoas com menos de 20 anos, ou exatamente 20 anos, deve ser renovada de 5 em 5 anos (se for exatamente 5 anos, deve ser renovada).
-// - Para pessoas entre 20 e 50 anos, ou exatamente 50, deve ser renovada de 10 em 10 anos (se for exatamente 10 anos, deve ser renovada).
-// - Para pessoas acima dos 50 anos, deve ser renovada de 15 em 15 anos
-
-function renovaCNH( dataNascimento: string, dataEmissaoCNH: string ): boolean {
+function renovaCNH( dataNascimento: string, dataEmissaoCNH: string ): boolean | string {
+    const dataAtual: number = new Date().getTime();
     
+    const [diaNasc, mesNasc, anoNasc] = dataNascimento.split("/");
+    const [diaCNH, mesCNH, anoCNH] = dataEmissaoCNH.split("/");
     
-    return
-}
+    const anoNascTimestamp: number = new Date(`${anoNasc}-${mesNasc}-${diaNasc}T00:00:00`).getTime();
+    const dataDocTimestamp: number = new Date(`${anoCNH}-${mesCNH}-${diaCNH}T00:00:00`).getTime();
+  
+    const idade: number = dataAtual - anoNascTimestamp;
+    const ultimaRenovacao: number = dataAtual - dataDocTimestamp;
+    const umAnoEmTimestamp: number = 31556926000;
+
+    if (idade <= 20 * umAnoEmTimestamp) {
+        return ultimaRenovacao >= 5 * umAnoEmTimestamp ? true : false;
+    } else if (idade >= 20 * umAnoEmTimestamp && idade <= 50 * umAnoEmTimestamp) {
+        return ultimaRenovacao >= 10 * umAnoEmTimestamp ? true : false;
+    } else if (idade >= 50 * umAnoEmTimestamp) {
+        return ultimaRenovacao >= 15 * umAnoEmTimestamp ? true : false;
+    } else {
+        return "Ops, algo deu errado, verifique as datas enviadas e tente novamente";
+    }
+};
+
+console.log("RESPOSTA: A CNH precisa ser renovada? ('false' para não precisa e 'true' para precisa):", renovaCNH("01/01/1985", "02/02/2017"))

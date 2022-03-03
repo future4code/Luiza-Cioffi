@@ -26,4 +26,4 @@ function retornaAdmin(admins: pessoas[]): string[] {
     return retornaEmail
 }
 
-console.log(retornaAdmin(listaPessoas))
+console.log("RESPOSTA: Segue lista de email dos administradores:",retornaAdmin(listaPessoas))

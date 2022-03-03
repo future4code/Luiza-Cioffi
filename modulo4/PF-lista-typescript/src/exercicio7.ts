@@ -14,8 +14,6 @@ const estoqueAtual: Estoque[] = [
 	{ nome: "Pokebola", quantidade: 200, valorUnitario: 99.9915}
 ]
 
-// faça uma nova função que receba o array de estoque como parâmetro, use a função ajustaPreco para corrigir os preços e retorne a lista de estoque ordenada pela quantidade de cada produto. 
-
 function listaOrdenada(estoque: Estoque[]): Estoque[] {
     const ajustaPreco = (preco :number): string => {
         const valorAjustado: string = preco.toFixed(2).replace('.', ',')
@@ -33,4 +31,4 @@ function listaOrdenada(estoque: Estoque[]): Estoque[] {
     return ordenacao
 }
 
-console.log(listaOrdenada(estoqueAtual))
+console.log("RESPOSTA: Segue o estoque atualizado para preços em reais, pela ordem de quantidade de produtos disponíveis:", listaOrdenada(estoqueAtual))

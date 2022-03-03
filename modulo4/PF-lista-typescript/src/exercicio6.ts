@@ -24,4 +24,4 @@ function emprestimos(retiradas: dadosClientes[]): dadosClientes[] {
     return devedores
 }
 
-console.log(emprestimos(clientes))
+console.log("RESPOSTA: Segue lista de clientes com potencial para contrair empréstimos:",emprestimos(clientes))
