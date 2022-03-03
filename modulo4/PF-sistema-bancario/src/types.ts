@@ -4,10 +4,10 @@ export type Transaction = {
     descrição: string
 }
 
-export type accounts = {
+export type Accounts = {
     name: string,
-    cpf: string,
-    dateOfBirthday: Date,
+    CPF: string,
+    dateOfBirth: Date,
     balance: number,
     statement: Array<Transaction>
 }
