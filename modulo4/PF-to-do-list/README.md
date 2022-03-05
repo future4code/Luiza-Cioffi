@@ -6,15 +6,14 @@ As tarefas são definidas por: título, descrição, data limite até a qual pre
 
 Dados esses requisitos do sistema, você deve modelar todo o banco de dados (usando MySQL) e implementar o backend. Leia atentamente a lista de endpoints mostrada abaixo antes de começar a modelagem do banco, aí estão descritas todas as informações necessárias para criá-los.
 
-### Endpoints Mínimos
+## Endpoints Mínimos
 
-- **1. Criar usuário**
+### 1. Criar usuário
     
     **Método:** POST
     **Path:** `/user`
     
     **Body:**
-    
     ```json
     {
     	"name": "Astro Dev",
@@ -24,19 +23,16 @@ Dados esses requisitos do sistema, você deve modelar todo o banco de dados (usa
     ```
     
     **Observações**:
-    
     - O seu código deve validar se os três campos estão completos (ou seja se não foram enviados ou se não estão vazios) e retornar um erro caso não estejam válidos
     - O seu código deve gerar o id do usuário
     
-- **2. Pegar usuário pelo id**
+### 2. Pegar usuário pelo id
     
     **Método:** GET
     **Path:** `/user/:id`
-    
     **Path Param**: é o id do usuário
     
     **Body de Resposta:**
-    
     ```json
     {
     	"id": "001",
@@ -45,18 +41,15 @@ Dados esses requisitos do sistema, você deve modelar todo o banco de dados (usa
     ```
     
     **Observações**:
-    
     - O endpoint deve retornar um erro se não encontrar o usuário
     
-- **3. Editar usuário**
+### 3. Editar usuário
     
     **Método:** PUT
     **Path:** `/user/edit/:id`
-    
     **Path Param**: é o id do usuário
     
     **Body:**
-    
     ```json
     {
     	"name": "Astro Dev",
@@ -65,17 +58,15 @@ Dados esses requisitos do sistema, você deve modelar todo o banco de dados (usa
     ```
     
     **Observações**:
-    
     - O seu código só deve alterar o que for enviado
     - Se algum valor enviado for vazio, deve retornar um erro
     
-- **4. Criar tarefa**
+### 4. Criar tarefa
     
     **Método:** POST
     **Path:** `/task`
     
     **Body:**
-    
     ```json
     {
     	"title": "Criar banco dos alunos",
@@ -86,20 +77,17 @@ Dados esses requisitos do sistema, você deve modelar todo o banco de dados (usa
     ```
     
     **Observações**:
-    
     - O seu código deve validar se todos os campos não estão vazios,
     - O seu código deve gerar o id da tarefa,
     - A data deve se recebida no formato mostrado acima: `DD/MM/YYYY` e o seu código deve fazer a conversão necessária para salvar no banco
     
-- **5. Pegar tarefa pelo id**
+### 5. Pegar tarefa pelo id
     
     **Método:** GET
     **Path:** `/task/:id`
-    
     **Path Param**: é o id da tarefa
     
     **Body de Resposta:**
-    
     ```json
     {
     	"taskId": "001",
@@ -113,7 +101,6 @@ Dados esses requisitos do sistema, você deve modelar todo o banco de dados (usa
     ```
     
     **Observações**:
-    
     - O endpoint deve retornar um erro se não encontrar a task
     - Perceba que o endpoint retorna informações tanto da tarefa como do usuário criador
     - O seu código deve converter a data recebida do banco para o formato mostrado acima (`DD/MM/YYYY`)
