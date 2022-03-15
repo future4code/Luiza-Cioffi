@@ -13,34 +13,11 @@ import Knex from "knex"
 
 dotenv.config()
 
-export const connection: Knex = knex({
-   client: "mysql",
-   connection: {
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_SCHEMA,
-      port: 3306,
-      multipleStatements: true
-   }
-})
-
 const app: Express = express()
 app.use(express.json())
 app.use(cors())
 
 /**************************** TYPES ******************************/
-
-type authenticationData = {
-   id: string
-}
-
-type user = {
-   id: string,
-   name: string,
-   email: string,
-   password: string
-}
 
 enum POST_TYPES {
    NORMAL = "normal",
@@ -58,7 +35,6 @@ type post = {
 
 /**************************** SERVICES ******************************/
 
-const generateId = (): string => v4()
 
 function generateToken(
    payload: authenticationData
@@ -83,55 +59,10 @@ function getTokenData(
    return { id: result.id, }
 }
 
-const hash = async (
-   plainText: string
-): Promise<string> => {
-   const rounds = Number(process.env.BCRYPT_COST);
-   const salt = await bcrypt.genSalt(rounds);
-   return bcrypt.hash(plainText, salt)
-}
-
-const compare = async (
-   plainText: string, cypherText: string
-): Promise<boolean> => {
-   return bcrypt.compare(plainText, cypherText)
-}
-
 /**************************** ENDPOINTS ******************************/
 
 app.post('/users/signup', async (req: Request, res: Response) => {
-   try {
-      let message = "Success!"
-      const { name, email, password } = req.body
-
-      if (!name || !email || !password) {
-         res.statusCode = 406
-         message = '"name", "email" and "password" must be provided'
-         throw new Error(message)
-      }
-
-      const id: string = generateId()
-
-      const cypherPassword = await hash(password);
-
-      await connection('labook_users')
-         .insert({
-            id,
-            name,
-            email,
-            password: cypherPassword
-         })
-
-      const token: string = generateToken({ id })
-
-      res.status(201).send({ message, token })
-
-   } catch (error) {
-      res.statusCode = 400
-      let message = error.sqlMessage || error.message
-
-      res.send({ message })
-   }
+  
 })
 
 app.post('/users/login', async (req: Request, res: Response) => {
@@ -177,7 +108,7 @@ app.post('/users/login', async (req: Request, res: Response) => {
 
       res.status(200).send({ message, token })
 
-   } catch (error) {
+   } catch (error: any) {
       let message = error.sqlMessage || error.message
       res.statusCode = 400
 
@@ -208,7 +139,7 @@ app.post('/posts/create', async (req: Request, res: Response) => {
 
       res.status(201).send({ message })
 
-   } catch (error) {
+   } catch (error: any) {
       let message = error.sqlMessage || error.message
       res.statusCode = 400
 
@@ -243,7 +174,7 @@ app.get('/posts/:id', async (req: Request, res: Response) => {
 
       res.status(200).send({ message, post })
 
-   } catch (error) {
+   } catch (error: any) {
       let message = error.sqlMessage || error.message
       res.statusCode = 400
 
