@@ -2,7 +2,7 @@ import knex from "knex";
 import Knex from "knex";
 
 export class BaseDatabase { 
-    connection: Knex = knex({
+    protected connection: Knex = knex({
         client: "mysql",
         connection: {
             host: process.env.DB_HOST,
