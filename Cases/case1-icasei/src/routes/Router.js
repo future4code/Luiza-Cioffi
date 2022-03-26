@@ -4,12 +4,14 @@ import DetailPage from '../pages/DetailPage/DetailPage';
 import HomePage from '../pages/HomePage/HomePage';
 import ResultsPage from '../pages/ResultsPage/ResultsPage';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
+import Header from "../components/header/Header";
 
 
 const Router = () => {
 
     return (
         <BrowserRouter>
+            <Header/>
             <Switch>
                 <Route exact path="/">
                     <HomePage/>
