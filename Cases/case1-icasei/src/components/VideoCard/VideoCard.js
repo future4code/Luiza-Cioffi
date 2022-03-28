@@ -16,10 +16,8 @@ const VideoCard = (props) => {
                     title={props.title}
                 />
                 <VideoCardContent>
-                    <Typography align={'center'}>
-                        {props.title.toUpperCase()}
-                    </Typography>
-                    <Typography align={'center'}>
+                    <Typography gutterBottom align='center'>
+                        {props.title.toUpperCase()} - 
                         {props.description}
                     </Typography>
                 </VideoCardContent>

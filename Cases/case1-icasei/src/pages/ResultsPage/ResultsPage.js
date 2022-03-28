@@ -1,14 +1,20 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import VideoCard from '../../components/VideoCard/VideoCard';
 import { BASE_URL } from '../../constants/urls';
 import useRequestData from '../../hooks/useRequestData';
-import {VideoListContainer} from './styled'
+import {VideoListContainer} from './styled';
+import { goToDetailPage } from '../../routes/coordinator';
+import { API_KEY } from '../../constants/key';
 
 const ResultsPage = () => {
     const TERMODEBUSCA = 'amor'
-    const videos = useRequestData([], `${BASE_URL}/search?part=id,snippet&q=${TERMODEBUSCA}&key=AIzaSyDhXlfg8cwlAL5DBGfsjl7gB1JSRK2pwok`)
-    const onClickVideo = () => {
+    const videos = useRequestData([], `${BASE_URL}/search?part=id,snippet&q=${TERMODEBUSCA}&key=${API_KEY}`)
+    
+    const history = useHistory();
 
+    const onClickVideo = (id) => {
+        goToDetailPage(history, id)
     }
     
     const videoCards = videos.map((video)=>{
@@ -18,7 +24,7 @@ const ResultsPage = () => {
                 title={video.snippet.title}
                 description={video.snippet.description}
                 image={video.snippet.thumbnails.high.url}
-                onClick={onClickVideo()}
+                onClick={() => onClickVideo(video.id.videoId)}
             />
         )
     })

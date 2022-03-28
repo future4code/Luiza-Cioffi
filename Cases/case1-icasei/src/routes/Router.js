@@ -27,7 +27,6 @@ const Router = () => {
                 </Route>
             </Switch>
         </BrowserRouter>
-
     )
 }
 

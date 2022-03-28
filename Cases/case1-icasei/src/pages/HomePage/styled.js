@@ -7,9 +7,10 @@ export const ScreenContainer = styled.div`
     width: 100vw;
 `
 
-export const LogoImage = styled.div`
+export const LogoImage = styled.img`
     width: 70vw;
     max-width: 350px;
+    margin:15px;
 `
 
 export const InputsContainer = styled.div`
