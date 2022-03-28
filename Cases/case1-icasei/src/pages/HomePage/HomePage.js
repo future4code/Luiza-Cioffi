@@ -1,16 +1,36 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
+import { ScreenContainer, LogoImage, InputsContainer } from './styled'
+import logo from '../../assets/logo.png'
+import TextField from '@material-ui/core/TextField'
 
 
 const HomePage = () => {
+
+    const onSearch = () => {
+
+    }
+
     return (
-        <div>
-            HomePage
+        <ScreenContainer>
+            <LogoImage src={logo} />
+            <InputsContainer>
+                <form onSubmit={onSearch}>
+                    <TextField
+                        name={'search'}
+                        // value={}
+                        // onChange={}
+                        label={"Pesquisar"}
+                        variant={"outlined"}
+                        fullWidth
+                        margin={"normal"}
+                    />
+                </form>
+            </InputsContainer>
             <Button variant="contained" color="primary">
-                Hello World
+                Buscar
             </Button>
-        </div>
+        </ScreenContainer>
     )
 }
 
