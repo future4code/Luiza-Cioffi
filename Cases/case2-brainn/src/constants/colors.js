@@ -1,9 +1,21 @@
-export const primaryColor = "#F27649"
-export const neutralColor = "#474749"
+export const primaryColor = "#E5E4e2"
+// cinza claro
 
-// verde escuro = 76c893
-// verde claro = 0aff99
-// roxo vivo = 6e44ff
-// roxo rosado = e75cff
-// laranja queimado = e75cff
-// marrom areia = a39171
+export const megaSenaColor = "#0aff99"
+// verde claro
+
+export const quinaColor = "#6e44ff"
+// roxo vivo
+
+export const lotofacilColor = "#e75cff"
+// roxo rosado
+
+export const lotomaniaColor = "#ff8d5c"
+// laranja queimado
+
+export const timemaniaColor = "#76c893"
+// verde escuro
+
+export const diaDeSorteColor = "#a39171"
+// marrom areia
+
