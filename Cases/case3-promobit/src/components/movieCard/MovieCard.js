@@ -7,7 +7,7 @@ const MovieCard = (props) => {
         <MovieContainer onClick={props.onClick}>
             <MovieImage src={props.image}/>
             <MovieCardContent className='card-text'>
-                <p>{props.title}</p>
+                <h1>{props.title}</h1>
                 <p>{props.release_date}</p>
             </MovieCardContent>
         </MovieContainer>

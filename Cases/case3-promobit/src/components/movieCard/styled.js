@@ -4,13 +4,19 @@ export const MovieContainer = styled.div`
   width: 20%;
   max-width: 200px;
   margin: 10px;
+  display:flex ;
+  align-items:center ;
+  justify-content:center ;
+  flex-direction:row;
+  flex-wrap:wrap ;
 `
 
 export const MovieCardContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
+  width: 200px;
+  margin: 15px;
   .card-text{
         width: 190px;
         min-height: 50px;
@@ -19,12 +25,11 @@ export const MovieCardContent = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        p:nth-child(1){
+        h1:nth-child{
         margin: 0;
         font-weight: bolder;
         }
-        p:nth-child(2){
-            color: gray;
+        p:nth-child{
             font-weight: bolder;
             margin: 0;
         }
@@ -34,8 +39,9 @@ export const MovieCardContent = styled.div`
 export const MovieImage = styled.img`
     display: flex;
     flex-direction: column;
-    width: 15rem;
+    width: 200px;
     margin: 1rem;
+    height: 250px;
     align-items: center;
     cursor: pointer;
     transition: 0.3s;
