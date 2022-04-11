@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 
-const useRequestData = (initialData, url) => {
+const useRequestDatail = (initialData, url) => {
     const [data, setData] = useState(initialData)
 
     useEffect(() => {
       axios.get(url)
         .then((response) => {
-          setData(response.data.results)
+          setData(response.data)
         })
         .catch((err) => {
           console.log("erro data", err.response)
@@ -15,4 +15,4 @@ const useRequestData = (initialData, url) => {
     }, [url])
     return (data)
 }
-export default useRequestData;
+export default useRequestDatail;

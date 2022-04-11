@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 
-const useRequestData = (initialData, url) => {
+const useRequestTrailer = (initialData, url) => {
     const [data, setData] = useState(initialData)
 
     useEffect(() => {
       axios.get(url)
         .then((response) => {
-          setData(response.data.results)
+            const trailer = response.data.results.filter((video) =>{
+                if(video.type === "Trailer"){
+                    return video
+                }
+            })
+            setData(trailer)
         })
         .catch((err) => {
           console.log("erro data", err.response)
@@ -15,4 +20,4 @@ const useRequestData = (initialData, url) => {
     }, [url])
     return (data)
 }
-export default useRequestData;
+export default useRequestTrailer;

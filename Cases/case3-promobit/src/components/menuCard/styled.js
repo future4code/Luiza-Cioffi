@@ -9,8 +9,9 @@ export const MenuContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5%
+    padding: 5%;
 `
+
 export const MenuText = styled.h1`
     display: flex;
     flex-direction: column;
