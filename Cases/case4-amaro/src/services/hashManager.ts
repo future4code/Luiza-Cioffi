@@ -10,3 +10,8 @@ export const generateHash = (
     const salt: string = genSaltSync(rounds)
     return hashSync(plainText, salt)
 }
+
+export const compareHash = (
+    plainxText: string,
+    cypherText: string
+    ): boolean => compareSync(plainxText, cypherText)
