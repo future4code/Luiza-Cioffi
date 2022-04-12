@@ -14,4 +14,4 @@ export const generateHash = (
 export const compareHash = (
     plainxText: string,
     cypherText: string
-    ): boolean => compareSync(plainxText, cypherText)
+): boolean => compareSync(plainxText, cypherText)
