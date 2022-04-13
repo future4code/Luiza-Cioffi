@@ -12,9 +12,7 @@ const DetailPage = () => {
 
   const params = useParams()
   const movie = useRequestDatail({}, `${BASE_URL}/movie/${params.id}?api_key=${API_KEY}&language=en-US`)
-
   const cast = useRequestCast([], `${BASE_URL}/movie/${params.id}/credits?api_key=${API_KEY}&language=en-US`)
-
   const castList = cast.map((castPerson) => {
     return (
       <StyledDetailsCard key={castPerson.cast_id}>
@@ -28,35 +26,7 @@ const DetailPage = () => {
   })
 
   const movieTrailers = useRequestTrailer({}, `${BASE_URL}/movie/${params.id}/videos?api_key=${API_KEY}&language=en-US`)
-  console.log(movieTrailers);
-
   const trailer = movieTrailers[0]
-  console.log(trailer);
-
-  // if (trailer === null || undefined) {
-  //   return (
-  //     <p>Loading</p>
-  //   )
-  // } else {
-  //   const showTrailer = trailer.map((item) => {
-  //     return (
-  //       <StyledTrailer>
-  //         <iframe width="560" height="315" src={`https://www.youtube.com/embed/${item.key}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  //       </StyledTrailer>
-  //     )
-  //   })
-  // }
-
-  // const movieTrailer = (trailer) => {
-  //   return (
-  //     <StyledTrailer>
-  //     <iframe width="560" height="315" src={`https://www.youtube.com/embed/${trailer.key}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  //   </StyledTrailer>
-  //   )
-  // }
-  // console.log(movieTrailer);
-
-
 
   return (
     <DetailPageContainer>
@@ -72,10 +42,13 @@ const DetailPage = () => {
       <StyledCastList>
         {castList}
       </StyledCastList>
-      {/* <StyledTrailer trailer={trailer}>
+
+      {trailer &&  <StyledTrailer  trailer={trailer}>
         <iframe width="560" height="315" src={`https://www.youtube.com/embed/${trailer.key}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </StyledTrailer> */}
-    </DetailPageContainer>
+      </StyledTrailer>
+      }    
+      
+      </DetailPageContainer>
   );
 }
 
