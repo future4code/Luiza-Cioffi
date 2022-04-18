@@ -1,5 +1,5 @@
 import React from 'react';
-import { HomePageContainer } from './styled';
+import { HomePageContainer, PageButtons } from './styled';
 import MovieCard from '../../components/movieCard/MovieCard';
 import MenuCard from '../../components/menuCard/MenuCard'
 import useRequestData from '../../hooks/useRequestData';
@@ -7,11 +7,25 @@ import { BASE_URL } from '../../constants/url'
 import { API_KEY } from '../../constants/api_key';
 import { useHistory } from 'react-router-dom';
 import { goToDetail } from '../../routes/Coordinator';
+import { useState } from 'react';
 
 const HomePage = () => {
 
   const history = useHistory()
-  const movies = useRequestData([], `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
+
+  const [page, setPage] = useState(1)
+  const changePageNext = (number) => {
+      setPage(page + number)
+      window.scrollTo(0,0)
+  }
+  const changePageBack = (number) => {
+      if(page >= 2){
+          setPage(page - number)
+      }
+      window.scrollTo(0,0)
+  }
+
+  const movies = useRequestData([], `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`)
   const movieList = movies.map((movie) => {
     return (
       <MovieCard
@@ -25,12 +39,18 @@ const HomePage = () => {
   })
 
   return (
-    <HomePageContainer>
-      <MenuCard 
-        text={'Milhões de filmes, séries e pessoas para descobrir. Explore já.'}
-      />
-      {movieList}
-    </HomePageContainer>
+    <div>
+      <HomePageContainer>
+        <MenuCard 
+          text={'Milhões de filmes, séries e pessoas para descobrir. Explore já.'}
+        />
+        {movieList}
+      </HomePageContainer>
+      <PageButtons>
+        <button onClick={(() => {changePageBack(1)})}>Voltar</button>
+        <button onClick={(() => {changePageNext(1)})}>Próximo</button>
+      </PageButtons>
+    </div>
   );
 }
 export default HomePage;

@@ -9,23 +9,24 @@ export const MovieContainer = styled.div `
 `
 
 export const MovieCardContent = styled.div`
-   .card-text{
-         width: 190px;
-         min-height: 50px;
-         text-align: left;
-         padding: 5px 0;
-         display: flex;
-         flex-direction: column;
-         justify-content: space-between;
-         h3:nth-child{
-         margin: 0;
-         font-weight: bolder;
-         }
-         p:nth-child{
-             font-weight: bolder;
-             margin: 0;
-         }
-    } 
+    width: 190px;
+    min-height: 50px;
+    text-align: left;
+    padding: 5px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h1{
+    margin: 0;
+    font-weight: bolder;
+    font-size: 12px
+    }
+    p{
+        font-weight: bolder;
+        margin: 0;
+        font-size: 11px;
+    }
+ 
 `
 
 export const MovieImage = styled.img`
