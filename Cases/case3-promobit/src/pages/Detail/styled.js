@@ -66,3 +66,31 @@ export const StyledTrailer = styled.div`
         }
     }
 `
+
+export const StyledRecommendationsCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    img{
+        width: 176px;
+        height: 264px;
+        border-radius: 4px;
+    }
+    p{
+        margin: 0;
+        font-weight: bold;
+        font-size: 16px;
+    }
+`
+
+export const StyledRecommendantionsList = styled.div`
+    display: flex;
+    overflow: hidden;
+    overflow-x: scroll;
+    scrollbar-color: gray silver;
+    scrollbar-width: thin;
+    margin: 1rem;
+    margin-top: 3rem;
+    padding: 0.5em;
+`

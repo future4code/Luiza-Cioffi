@@ -11,11 +11,8 @@ import { goToDetail } from '../../routes/Coordinator';
 const HomePage = () => {
 
   const history = useHistory()
-
   const movies = useRequestData([], `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
-
   const movieList = movies.map((movie) => {
-    
     return (
       <MovieCard
         title={movie.original_title}
