@@ -1,0 +1,52 @@
+ESTRUTURA DE DADOS
+
+    Product
+        id: number
+        name: string
+        
+    tags: string[]
+        name
+
+FUNCIONALIDADES MÍNIMAS
+
+NOME                            INPUT                         OUTPUT
+getProductsById                 id                            id, name, tags
+
+getProductsByName               name                          id, name, tags
+
+getProductsByTag                tag                           id, name, tags
+
+postNewProduct                  name, tags                    id
+
+
+end-point para inserção de dados
+O cliente poderá enviá-los em arquivos json ou xml e a API deverá inserir no banco de dados.
+Escolha o banco de dados que achar melhor.
+
+End-point para consulta destes produtos
+Pode ser consultado por: id, nome ou tags. 
+Caso a consulta seja por uma tag ou nome, deverá listar todos os produtos com aquela respectiva busca, poderá ser feito em um ou mais end-points.
+
+
+
+
+
+
+JULIANA - a minha esta assim
+
+CREATE TABLE IF NOT EXISTS amaroProducts (
+id VARCHAR(255) PRIMARY KEY,
+name VARCHAR (255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS amaroTags (
+productId VARCHAR(255),
+FOREIGN KEY (productId) references amaroProducts(id),
+name VARCHAR (255) NOT NULL 
+);
+
+
+clonar o repositório
+criar o arquivo .env com as chaves que precisa usar para o banco de dados
+após o install e o .env, pode ser rodado o script migrations, para criação das tabelas no banco de dados
+depois de rodar o migrations que roda o start, porque daí as tabelas vão existir para poderem ser manipuladas

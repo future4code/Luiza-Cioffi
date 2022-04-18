@@ -1,8 +1,10 @@
 import app from "./app";
-import connection from './connection'
-import generateId from "./services/idGenerator"
+import getProductsById from "./endpoints/getProductsById";
+import getProductsByName from "./endpoints/getProductsByName";
+import getProductsByTag from "./endpoints/getProductsByTag";
+import postNewProduct from "./endpoints/postNewProduct";
 
-app.get("/")
-
-connection.raw("SHOW TABLES").then(console.log)
-console.log(generateId());
+app.post("/products/new", postNewProduct)
+app.get("/products/name/:name", getProductsByName)
+app.get("/products/id/:id", getProductsById)
+app.get("/products/tag/:tag", getProductsByTag)
