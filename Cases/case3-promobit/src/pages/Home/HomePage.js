@@ -12,20 +12,10 @@ import { useState } from 'react';
 const HomePage = () => {
 
   const history = useHistory()
-
   const [page, setPage] = useState(1)
-  const changePageNext = (number) => {
-      setPage(page + number)
-      window.scrollTo(0,0)
-  }
-  const changePageBack = (number) => {
-      if(page >= 2){
-          setPage(page - number)
-      }
-      window.scrollTo(0,0)
-  }
-
-  const movies = useRequestData([], `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`)
+  
+  const movies = useRequestData([], `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=pt-BR&page=${page}`)  
+  
   const movieList = movies.map((movie) => {
     return (
       <MovieCard
@@ -37,7 +27,18 @@ const HomePage = () => {
       />
     )
   })
-
+  
+  const changePageNext = (number) => {
+      setPage(page + number)
+      window.scrollTo(0,0)
+  }
+  const changePageBack = (number) => {
+      if(page >= 2){
+          setPage(page - number)
+      }
+      window.scrollTo(0,0)
+  }
+  
   return (
     <div>
       <HomePageContainer>

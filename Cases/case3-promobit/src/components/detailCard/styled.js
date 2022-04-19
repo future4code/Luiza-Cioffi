@@ -10,15 +10,14 @@ export const DetailContainer = styled.div`
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    padding: 5%;
+
 `
 
 export const PosterImage = styled.img`
     align-items: left;
-    /* position: absolute; */
     border-radius: 5px;
     max-width:15rem;
-    margin: 5%;
+    margin: 3%;
 `
 
 export const DetailsDescription = styled.div`
@@ -29,37 +28,23 @@ export const DetailsDescription = styled.div`
 `
 
 export const Title = styled.div`
-    font-size: 14px;
+    .h1{
+        font-weight: bold;
+        font-size: 12px;
+    }    
 `
 export const Infos= styled.div`
-    font-size: 9px;
+    font-size: 14px;
     display: flex;
     flex-direction: row;
 `
 
 export const Ratting= styled.div`
     margin: 1px;
-    font-size: 11px;
+    font-size: 14px;
 `
 
 export const Sinopsis= styled.div`
-    .h1{
-        font-weight: bold;
-        font-size: 12px;
-    }
-    .p{
-        font-weight: normal;
-        font-size: 10px;
-    }
-`
-
-export const Crew= styled.div`
-    .h1{
-        font-weight: bold;
-        font-size: 10px;
-    }
-    .p{
-        font-weight: normal;
-        font-size: 10px;
-    }
+    font-weight: 400;
+    font-size: 13px;
 `

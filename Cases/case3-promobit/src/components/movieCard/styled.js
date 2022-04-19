@@ -6,6 +6,9 @@ export const MovieContainer = styled.div `
     justify-content:center ;
     flex-direction:column;
     flex-wrap:wrap ;
+    :hover{
+        transform: translateY(-3px);
+    }
 `
 
 export const MovieCardContent = styled.div`

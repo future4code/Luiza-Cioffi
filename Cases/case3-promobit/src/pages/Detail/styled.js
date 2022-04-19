@@ -3,8 +3,10 @@ import styled from "styled-components";
 export const DetailPageContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    align-items: left;
+    justify-content: center;
     flex-direction: column;
+    max-width: 100vw;
 `
 
 export const StyledDetailsCard = styled.div`
@@ -45,7 +47,8 @@ export const StyledDetailsCard = styled.div`
 
 export const StyledCastList = styled.div`
     display: flex;
-    overflow: hidden;
+    flex-direction: row;
+    overflow: auto;
     overflow-x: scroll;
     scrollbar-color: gray silver;
     scrollbar-width: thin;
@@ -56,7 +59,7 @@ export const StyledCastList = styled.div`
 export const StyledTrailer = styled.div`
     margin-bottom: 2rem;
     margin-left: 2rem;
-    @media(max-width: 650px) {
+    @media(max-width: 60vw) {
             display: flex;
             align-items: center;
             margin-left: 10%;
@@ -72,25 +75,32 @@ export const StyledRecommendationsCard = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: left;
+    cursor:pointer;
+    :hover{
+        transform: translateY(-3px);
+    }
     img{
         width: 176px;
-        height: 264px;
         border-radius: 4px;
     }
     p{
         margin: 0;
         font-weight: bold;
-        font-size: 16px;
+        font-size: 12px;
+        display: flex;
+        flex-direction: center;
     }
 `
 
 export const StyledRecommendantionsList = styled.div`
     display: flex;
-    overflow: hidden;
+    flex-direction: row;
+    align-items: left;
     overflow-x: scroll;
     scrollbar-color: gray silver;
     scrollbar-width: thin;
     margin: 1rem;
     margin-top: 3rem;
     padding: 0.5em;
+    margin: 1rem;
 `

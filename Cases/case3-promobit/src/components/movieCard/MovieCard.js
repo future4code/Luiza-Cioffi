@@ -2,7 +2,6 @@ import React from 'react';
 import { MovieContainer, MovieCardContent, MovieImage } from './styled';
 
 const MovieCard = (props) => {
-
     return (
         <MovieContainer onClick={props.onClick}>
             <MovieImage src={props.image} alt={props.title}/>
@@ -13,5 +12,4 @@ const MovieCard = (props) => {
         </MovieContainer>
     )
 }
-
-export default MovieCard
+export default MovieCard;
