@@ -18,7 +18,3 @@ app.listen(3003, () => {
 });
 
 export default app 
-
-function userRouter(arg0: string, userRouter: any) {
-    throw new Error("Function not implemented.");
-}

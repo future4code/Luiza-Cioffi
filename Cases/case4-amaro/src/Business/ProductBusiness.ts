@@ -27,8 +27,16 @@ export class ProductBusiness {
     };
 
     async getProductById(input: getProductByIdDTO) {
-        try {
+        try {   
+            
+            const product:product = await new ProductDatabase().getProductById(input.id)
 
+            if (!product){
+                throw new Error("Produto não encontrado")
+            }
+
+            return product;
+            
         }catch(error:any){
             throw new Error(error.sqlMessage || error.message)
         }

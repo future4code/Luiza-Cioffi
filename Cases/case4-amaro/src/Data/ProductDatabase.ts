@@ -1,5 +1,5 @@
 import { BaseDatabase } from "./BaseDatabase";
-import { product, productsTableName } from "../Entities/Products";
+import { product, productsTableName, toProductModel } from "../Entities/Products";
 
 export class ProductDatabase extends BaseDatabase {
     async createProduct(product: product){
@@ -12,6 +12,20 @@ export class ProductDatabase extends BaseDatabase {
                 tag: product.tag
             })
         } catch (error:any) {
+            throw new Error(error.sqlMessage || error.message)
+        }
+    };
+
+    async getProductById(id: string): Promise <product>{
+        try {
+
+            const result:any = await this.connection(`${productsTableName}`)
+                .select('*')
+                .where({ id })
+
+            return toProductModel(result);
+            
+        }catch(error:any){
             throw new Error(error.sqlMessage || error.message)
         }
     }

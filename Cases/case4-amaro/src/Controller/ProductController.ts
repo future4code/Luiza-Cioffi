@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import { ProductBusiness } from "../Business/ProductBusiness";
-import { createProductInputDTO, getProductByIdDTO } from "../Entities/Products";
+import { createProductInputDTO, getProductByIdDTO, product } from "../Entities/Products";
 
 export class ProductController {
 
@@ -33,12 +33,15 @@ export class ProductController {
             const input:getProductByIdDTO = {
                 id: req.params.id
             }
+
+            const product:product = await new ProductBusiness().getProductById(input)
+
+            res.status(200).send({message, product})
         }catch (error:any){
             let message = error.sqlMessage || error.message
             res.statusCode = 400
 
             res.send({message})
-        }
         }
     }
 }
