@@ -1,10 +1,10 @@
 import { Request, Response } from "express"
 import { ProductBusiness } from "../Business/ProductBusiness";
-import { createProductInputDTO } from "../Entities/Products";
+import { createProductInputDTO, getProductByIdDTO } from "../Entities/Products";
 
 export class ProductController {
 
-    CreateProduct = async (req: Request, res: Response) => {
+    createProduct = async (req: Request, res: Response) => {
         try {
             let message = 'Success!'
 
@@ -21,6 +21,24 @@ export class ProductController {
             res.statusCode = 400
 
             res.send({message})
+        }
+    };
+
+    getProductById = async (req: Request, res: Response) => {
+        try {
+
+            let message = 'Success!'
+
+            const {id} = req.params
+            const input:getProductByIdDTO = {
+                id: req.params.id
+            }
+        }catch (error:any){
+            let message = error.sqlMessage || error.message
+            res.statusCode = 400
+
+            res.send({message})
+        }
         }
     }
 }

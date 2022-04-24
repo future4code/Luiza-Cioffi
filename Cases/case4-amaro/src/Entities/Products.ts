@@ -1,12 +1,16 @@
 export type product = {
-    id: number,
+    id: string,
     name: string,
     tag: string
-}
+};
 
-export const productsTableName = 'amaroproject_products'
+export const productsTableName = 'amaroproject_products';
 
 export interface createProductInputDTO {
     name: string,
     tag: string
+};
+
+export interface getProductByIdDTO {
+    id: string,
 }

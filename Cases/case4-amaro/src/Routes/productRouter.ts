@@ -1,8 +1,11 @@
 import express from "express";
-import postNewProduct from "../endpoints/postNewProduct";
+import { ProductController } from "../Controller/ProductController";
+
 
 export const productRouter = express.Router();
-productRouter.post("/products/new", postNewProduct)
+const productController = new ProductController
+
+productRouter.post("/products/new", productController.createProduct);
 productRouter.get("/products/:id")
 productRouter.get("/products/:name")
 productRouter.get("/products/:tag")
