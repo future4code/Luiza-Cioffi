@@ -1,4 +1,5 @@
 import { Request, Response } from "express"
+import { ProductBusiness } from "../Business/ProductBusiness";
 import { createProductInputDTO } from "../Entities/Products";
 
 export class ProductController {
@@ -12,6 +13,7 @@ export class ProductController {
                 tag: req.body.tag
             }
 
+            await new ProductBusiness().createProduct(input)
             res.status(201).send({message})
         
         } catch (error:any) {
