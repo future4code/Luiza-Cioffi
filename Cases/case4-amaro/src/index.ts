@@ -1,10 +1,23 @@
-import app from "./app";
-import getProductsById from "./endpoints/getProductsById";
-import getProductsByName from "./endpoints/getProductsByName";
-import getProductsByTag from "./endpoints/getProductsByTag";
-import postNewProduct from "./endpoints/postNewProduct";
+import { Express } from 'express';
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
 
-app.post("/products/new", postNewProduct)
-app.get("/products/name/:name", getProductsByName)
-app.get("/products/id/:id", getProductsById)
-app.get("/products/tag/:tag", getProductsByTag)
+dotenv.config()
+
+const app: Express = express()
+
+app.use(express.json())
+app.use(cors())
+app.use("/post", userRouter)
+
+
+app.listen(3003, () => {
+    console.log("Server is running in http://localhost:3003 [Servidor rodando na porta 3003]");
+});
+
+export default app 
+
+function userRouter(arg0: string, userRouter: any) {
+    throw new Error("Function not implemented.");
+}
