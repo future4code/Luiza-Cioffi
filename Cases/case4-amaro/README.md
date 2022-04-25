@@ -31,7 +31,7 @@ O projeto precisa ser clonado atraves do terminal, seguindo as intruções so pr
 
 ### Conectando ao banco de dados
 
-Para conectar o projeto ao banco de dados MySQL, é necesário que seja criado o arquivo '.env', na altura do arquivo package.json, com os dados necessários para que o arquivo connections.ts (na pasta services, dentro de src) rode corretamente:
+Para conectar o projeto ao banco de dados MySQL, é necesário que seja criado o arquivo '.env', na altura do arquivo package.json, com os dados necessários para que o arquivo BaseDatabase.ts (na pasta Data, dentro de src) rode corretamente, ou seja:
 DB_HOST = host do banco de dados
 DB_USER = nome de usuário
 DB_SCHEMA = nome do schema

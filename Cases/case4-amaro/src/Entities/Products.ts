@@ -15,6 +15,14 @@ export interface getProductByIdDTO {
     id: string,
 };
 
+export interface getProductByNameDTO {
+    name: string,
+};
+
+export interface getProductByTagDTO {
+    tag: string,
+};
+
 export function toProductModel(obj: any): product{
     return obj && {
         id: obj.id,
