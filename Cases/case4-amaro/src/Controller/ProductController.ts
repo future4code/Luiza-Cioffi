@@ -6,7 +6,7 @@ export class ProductController {
 
     createProduct = async (req: Request, res: Response) => {
         try {
-            let message = 'Success!'
+            let message = 'Sucesso!'
 
             const input:createProductInputDTO = {
                 name: req.body.name,
@@ -27,7 +27,7 @@ export class ProductController {
     getProductById = async (req: Request, res: Response) => {
         try {
 
-            let message = 'Success!'
+            let message = 'Sucesso!'
 
             const {id} = req.params
             const input:getProductByIdDTO = {

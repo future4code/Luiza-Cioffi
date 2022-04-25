@@ -1,5 +1,5 @@
 import { BaseDatabase } from "./BaseDatabase";
-import { product, productsTableName, toProductModel } from "../Entities/Products";
+import { product, productsTableName } from "../Entities/Products";
 
 export class ProductDatabase extends BaseDatabase {
     async createProduct(product: product){
@@ -23,7 +23,7 @@ export class ProductDatabase extends BaseDatabase {
                 .select('*')
                 .where({ id })
 
-            return toProductModel(result);
+            return result;
             
         }catch(error:any){
             throw new Error(error.sqlMessage || error.message)
@@ -37,7 +37,7 @@ export class ProductDatabase extends BaseDatabase {
                 .select('*')
                 .where({ name })
 
-            return toProductModel(result);
+            return result;
             
         }catch(error:any){
             throw new Error(error.sqlMessage || error.message)
@@ -51,7 +51,7 @@ export class ProductDatabase extends BaseDatabase {
                 .select('*')
                 .where({ tag })
 
-            return toProductModel(result);
+            return result;
             
         }catch(error:any){
             throw new Error(error.sqlMessage || error.message)

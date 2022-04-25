@@ -22,8 +22,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## Documentação da API no Postman:
 
+https://documenter.getpostman.com/view/18389097/UyrBjw2Q
 
-## A API e seu pleno funcionamento serão descritos a seguir:
+## A API e seu funcionamento
 
 ### Clonando os arquivos do repositório
 
@@ -45,80 +46,84 @@ Após criação do arquivo .env, é necessário rodar o script migrations no ter
 
 ## Inserir Produto
 
-Para que um produto seja inserido, é necessário utilizar o endpoint "/product/insert", sendo necessário também o uso do método POST e o envio de um body com os seguintes detalhes: 
+Para que um produto seja inserido, é necessário utilizar o endpoint "/product/new", sendo necessário também o uso do método POST e o envio de um body com os seguintes detalhes: 
 
 {
-    "name": "(Nome do produto)",
-    "tags": "tag)"
+    "name": "Nome do produto",
+    "tag": "tag"
 }
-
-Exemplo:
-
-![body products]
 
 Caso tudo esteja certo a resposta deverá ser a seguinte:
 
-![resposta inserir produto]
+{
+    "message": "Sucesso!"
+}
 
 Caso o nome da produto ja esteja na lista de produtos um erro irá aparecer com a seguinte mensagem:
 
-![erro nome repetido]
+{
+    "message": "Duplicate entry 'Blusa gola alta' for key 'name'"
+}
 
 ## Consulta de Produtos
 ### Consulta por ID
 
-Para consultar um produto por ID, é necessário utilizar o endpoint "/product/search" juntamente com o método GET, sendo necessário também o envio de um body com o ID do produto, da seguinte maneira:
+Para consultar um produto por ID, é necessário utilizar o endpoint "/product/:id", método GET, com o envio do parâmetro ID do produto, da seguinte maneira:
 
 {
     "id": "(ID do produto)"
 }
 
-Exemplo:
-
-![busca por id]
-
 Se o ID estiver correto a resposta virá com a descrição do produto no seguinte formato:
 
-![produto buscado por id]
+{
+    "message": "Sucesso!",
+    "product": [
+        {
+            "id": "b991a87b-151e-41bd-9055-0b0d491e0e33",
+            "name": "VESTIDO TRICOT",
+            "tag": "balada"
+        }
+    ]
+}
 
 ### Consulta por nome
-Para consultar um produto por nome, é necessário utilizar o endpoint "/product/search" juntamente com o método GET, sendo necessário também o envio de um body com o nome do produto, da seguinte maneira:
+Para consultar um produto por nome, é necessário utilizar o endpoint "/product/:name" juntamente com o método GET, sendo necessário também o envio do parâmetro nome do produto, da seguinte maneira:
 
 {
     "name": "Nome do produto"
 }
 
-Exemplo:
+Se o name estiver correto a resposta virá com a descrição do produto no seguinte formato:
 
-![busca por nome]
-Caso o nome exista na lista de produtos a API retornará:
+{
+    "message": "Sucesso!",
+    "product": [
+        {
+            "id": "b991a87b-151e-41bd-9055-0b0d491e0e33",
+            "name": "VESTIDO TRICOT",
+            "tag": "balada"
+        }
+    ]
+}
 
-![retorno exato busca por nome]
-
-Lembrando que ao consultar um produto com uma palavra aproximada, não exata, a API retornará todos os produtos com o nome inserido:
-
-![retorno não exato busca por nome]
-
-Caso não haja produto com o respectivo nome ou chave de consulta, o seguinte erro aparecerá:
-
-[erro busca por nome]
 
 ### Consulta por Tags
-Para consultar um produto por tag, é necessário utilizar o endpoint "/product/search" juntamente com o método GET, sendo necessário também o envio de um body com a tag a ser pesquisada, da seguinte maneira:
+Para consultar um produto por tag, é necessário utilizar o endpoint "/product/search" juntamente com o método GET, sendo necessário também o envio do parâmetro tag a ser pesquisado, da seguinte maneira:
 
 {
     "tags": "tag1"
 }
 
-Exemplo:
+Se a tag estiver correta a resposta virá com a descrição do produto no seguinte formato:
 
-[busca por tag]
-Caso a tag exista na lista de produtos a API retornará todos os produtos que contém esta tag:
-
-[retorno tag]
-
-Caso não haja produto com a respectiva tag, o seguinte erro aparecerá:
-
-[erro busca por nome]
-
-
+{
+    "message": "Sucesso!",
+    "product": [
+        {
+            "id": "b991a87b-151e-41bd-9055-0b0d491e0e33",
+            "name": "VESTIDO TRICOT",
+            "tag": "balada"
+        }
+    ]
+}
